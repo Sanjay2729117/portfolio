@@ -7,13 +7,15 @@
     <meta name="keywords" content="Portfolio, Sanjay, Web Developer, Full-Stack Development, ReactJS, AI, Projects">
     <title>Sanjay's Portfolio</title>
     <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
     <div class="nav-full">
-         <div class="nav-items">Home</div>
-         <div class="nav-items">About</div>
-         <div class="nav-items">Projects</div>
-         <div class="nav-items">Contact</div>
+         <div class="nav-items" onclick="scrollToSection('home')">Home</div>
+         <div class="nav-items" onclick="scrollToSection('about')">About</div>
+         <div class="nav-items" onclick="scrollToSection('skills')">Skills</div>
+         <div class="nav-items" onclick="scrollToSection('projects')">Projects</div>
+         <div class="nav-items" onclick="scrollToSection('contact')">Contact</div>
     </div>
     <!-- <section id="loader">
         <video src="./assets/loading.mp4" width="400" height="400" autoplay muted></video>
@@ -42,9 +44,9 @@
         </div>
         <div class="home-flex">
         <div class="greeting">
-            Hello! I’m a <span class="autotype">developer</span>
+            Hello! I'm a <span class="autotype"></span>
         </div>
-        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eos, nemo. Voluptatum, rerum consectetur excepturi, accusantium doloremque aliquid illo sequi ipsa eaque tenetur, eveniet distinctio expedita maiores quos eum. Laborum, unde?</p>
+        <p>To develop innovative tech solutions, including AI-driven security analysis and event management platforms, while excelling in full-stack development with ReactJS and Java Spring Boot.</p>
         <div class="buttons">
             <button class="cta">
                 Download CV
@@ -60,7 +62,7 @@
 
     </div>
        
-    <div class="intro">
+    <div id="about" class="intro">
         <div class="about">About</div>
         <div class="align replyalign">
             
@@ -87,7 +89,7 @@
         <div class=" align">
             
         <img src="./assets/1699183087555.jpeg" alt="">
-        <div class="reply">I’m learning full-stack development and working on cool projects.</div>
+        <div class="reply">I'm learning full-stack development and working on cool projects.</div>
         </div>
         <div class="align replyalign">
             
@@ -100,245 +102,270 @@
             <div class="reply">I know ReactJS, HTML, CSS, and JavaScript. I also work with Power BI.</div>
             </div>
     </div>
-    <div class="projects">
-        
+    <div id="skills" class="skills-section">
         <div class="about">Skills</div>
-        <!-- <div class="notes">
-          
-        <div class="sticky-container">
-            <div class="sticky-outer">
-              <div class="sticky">
-                <svg width="0" height="0">
-                  <defs>
-                    <clipPath id="stickyClip" clipPathUnits="objectBoundingBox">
-                      <path
-                        d="M 0 0 Q 0 0.69, 0.03 0.96 0.03 0.96, 1 0.96 Q 0.96 0.69, 0.96 0 0.96 0, 0 0"
-                        stroke-linejoin="round"
-                        stroke-linecap="square"
-                      />
-                    </clipPath>
-                  </defs>
-                </svg>
-                <div class="sticky-content">
-                     <div class="text">Html <br>
-                  
-                </div> 
+        <div class="skills-container">
+            <div class="skill-item">
+                <div class="skill-circle">
+                    <div class="progress-bar" data-progress="90">
+                        <svg>
+                            <circle class="progress" cx="70" cy="70" r="65"></circle>
+                        </svg>
+                        <div class="percentage">90%</div>
+                    </div>
                 </div>
-              </div>
+                <h3>HTML/CSS</h3>
             </div>
-          </div>
-          
-          <div class="sticky-container">
-            <div class="sticky-outer">
-              <div class="sticky">
-                <svg width="0" height="0">
-                  <defs>
-                    <clipPath id="stickyClip" clipPathUnits="objectBoundingBox">
-                      <path
-                        d="M 0 0 Q 0 0.69, 0.03 0.96 0.03 0.96, 1 0.96 Q 0.96 0.69, 0.96 0 0.96 0, 0 0"
-                        stroke-linejoin="round"
-                        stroke-linecap="square"
-                      />
-                    </clipPath>
-                  </defs>
-                </svg>
-                <div class="sticky-content">
-                     <div class="text">Css <br>
-                  
-                </div> 
+            <div class="skill-item">
+                <div class="skill-circle">
+                    <div class="progress-bar" data-progress="85">
+                        <svg>
+                            <circle class="progress" cx="70" cy="70" r="65"></circle>
+                        </svg>
+                        <div class="percentage">85%</div>
+                    </div>
                 </div>
-              </div>
+                <h3>JavaScript</h3>
             </div>
-          </div>
-
-          <div class="sticky-container">
-            <div class="sticky-outer">
-              <div class="sticky">
-                <svg width="0" height="0">
-                  <defs>
-                    <clipPath id="stickyClip" clipPathUnits="objectBoundingBox">
-                      <path
-                        d="M 0 0 Q 0 0.69, 0.03 0.96 0.03 0.96, 1 0.96 Q 0.96 0.69, 0.96 0 0.96 0, 0 0"
-                        stroke-linejoin="round"
-                        stroke-linecap="square"
-                      />
-                    </clipPath>
-                  </defs>
-                </svg>
-                <div class="sticky-content">
-                     <div class="text">Javascript <br>
-                  
-                </div> 
+            <div class="skill-item">
+                <div class="skill-circle">
+                    <div class="progress-bar" data-progress="80">
+                        <svg>
+                            <circle class="progress" cx="70" cy="70" r="65"></circle>
+                        </svg>
+                        <div class="percentage">80%</div>
+                    </div>
                 </div>
-              </div>
+                <h3>ReactJS</h3>
             </div>
-          </div>
-
-          <div class="sticky-container">
-            <div class="sticky-outer">
-              <div class="sticky">
-                <svg width="0" height="0">
-                  <defs>
-                    <clipPath id="stickyClip" clipPathUnits="objectBoundingBox">
-                      <path
-                        d="M 0 0 Q 0 0.69, 0.03 0.96 0.03 0.96, 1 0.96 Q 0.96 0.69, 0.96 0 0.96 0, 0 0"
-                        stroke-linejoin="round"
-                        stroke-linecap="square"
-                      />
-                    </clipPath>
-                  </defs>
-                </svg>
-                <div class="sticky-content">
-                     <div class="text">Reactjs <br>
-                  
-                </div> 
+            <div class="skill-item">
+                <div class="skill-circle">
+                    <div class="progress-bar" data-progress="75">
+                        <svg>
+                            <circle class="progress" cx="70" cy="70" r="65"></circle>
+                        </svg>
+                        <div class="percentage">75%</div>
+                    </div>
                 </div>
-              </div>
+                <h3>Node.js</h3>
             </div>
-          </div>
-
-          <div class="sticky-container">
-            <div class="sticky-outer">
-              <div class="sticky">
-                <svg width="0" height="0">
-                  <defs>
-                    <clipPath id="stickyClip" clipPathUnits="objectBoundingBox">
-                      <path
-                        d="M 0 0 Q 0 0.69, 0.03 0.96 0.03 0.96, 1 0.96 Q 0.96 0.69, 0.96 0 0.96 0, 0 0"
-                        stroke-linejoin="round"
-                        stroke-linecap="square"
-                      />
-                    </clipPath>
-                  </defs>
-                </svg>
-                <div class="sticky-content">
-                     <div class="text">Nodejs <br>
-                  
-                </div> 
+            <div class="skill-item">
+                <div class="skill-circle">
+                    <div class="progress-bar" data-progress="80">
+                        <svg>
+                            <circle class="progress" cx="70" cy="70" r="65"></circle>
+                        </svg>
+                        <div class="percentage">80%</div>
+                    </div>
                 </div>
-              </div>
+                <h3>Java</h3>
             </div>
-          </div>
-          <div class="sticky-container">
-            <div class="sticky-outer">
-              <div class="sticky">
-                <svg width="0" height="0">
-                  <defs>
-                    <clipPath id="stickyClip" clipPathUnits="objectBoundingBox">
-                      <path
-                        d="M 0 0 Q 0 0.69, 0.03 0.96 0.03 0.96, 1 0.96 Q 0.96 0.69, 0.96 0 0.96 0, 0 0"
-                        stroke-linejoin="round"
-                        stroke-linecap="square"
-                      />
-                    </clipPath>
-                  </defs>
-                </svg>
-                <div class="sticky-content">
-                     <div class="text">Expressjs<br>
-                  
-                </div> 
+            <div class="skill-item">
+                <div class="skill-circle">
+                    <div class="progress-bar" data-progress="80">
+                        <svg>
+                            <circle class="progress" cx="70" cy="70" r="65"></circle>
+                        </svg>
+                        <div class="percentage">80%</div>
+                    </div>
                 </div>
-              </div>
+                <h3>C</h3>
             </div>
-          </div>
-          <div class="sticky-container">
-            <div class="sticky-outer">
-              <div class="sticky">
-                <svg width="0" height="0">
-                  <defs>
-                    <clipPath id="stickyClip" clipPathUnits="objectBoundingBox">
-                      <path
-                        d="M 0 0 Q 0 0.69, 0.03 0.96 0.03 0.96, 1 0.96 Q 0.96 0.69, 0.96 0 0.96 0, 0 0"
-                        stroke-linejoin="round"
-                        stroke-linecap="square"
-                      />
-                    </clipPath>
-                  </defs>
-                </svg>
-                <div class="sticky-content">
-                     <div class="text">Mongodb <br>
-                  
-                </div> 
+        </div>
+    </div>
+
+    <div id="projects" class="projects-section">
+        <div class="about">Projects</div>
+        <div class="projects-container">
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="./assets/ideagen.png" alt="IdeaGen Project">
                 </div>
-              </div>
+                <div class="project-content">
+                    <h3>IdeaGen</h3>
+                    <p>An innovative platform for generating and managing creative ideas using AI technology.</p>
+                    <div class="project-tags">
+                        <span>React</span>
+                        <span>Gemini AI</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/Sanjay2729117/ideagen" target="_blank"><i class="fab fa-github"></i></a>
+                        <a href="https://ideagen-orpin.vercel.app/" target="_blank"><i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
             </div>
-          </div>
 
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="./assets/weather.png" alt="Weather Website">
+                </div>
+                <div class="project-content">
+                    <h3>Weather Website</h3>
+                    <p>A responsive weather application providing real-time weather updates and forecasts.</p>
+                    <div class="project-tags">
+                        <span>HTML/CSS</span>
+                        <span>JavaScript</span>
+                        <span>Weather API</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/Sanjay2729117/Weather1" target="_blank"><i class="fab fa-github"></i></a>
+                        <a href="https://weather1-ochre.vercel.app/" target="_blank"><i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+            </div>
 
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="./assets/todo.png" alt="Todo App">
+                </div>
+                <div class="project-content">
+                    <h3>Todo App</h3>
+                    <p>A full-stack todo application with user authentication and real-time updates.</p>
+                    <div class="project-tags">
+                        <span>React</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/Sanjay2729117/todo" target="_blank"><i class="fab fa-github"></i></a>
+                        <a href="https://todo-tau-beryl.vercel.app/" target="_blank"><i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+            </div>
 
-        </div> -->
-          <div class="skills">
-            .circ
-          </div>
-      </div>
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="./assets/advice.png" alt="Advice Generator">
+                </div>
+                <div class="project-content">
+                    <h3>Advice Generator</h3>
+                    <p>An interactive web application that generates random pieces of advice using an external API.</p>
+                    <div class="project-tags">
+                        <span>HTML/CSS</span>
+                        <span>JavaScript</span>
+                        <span>API Integration</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/Sanjay2729117/advice" target="_blank"><i class="fab fa-github"></i></a>
+                        <a href="https://advice-gamma-nine.vercel.app/" target="_blank"><i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-<!--    
+    <div id="contact" class="contact-section">
+        <div class="about">Contact</div>
+        <div class="contact-container">
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <a href="mailto:22cb048@drngpit.ac.in">22cb048@drngpit.ac.in</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-github"></i>
+                    <a href="https://github.com/Sanjay2729117" target="_blank">github.com/Sanjay2729117</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-linkedin"></i>
+                    <a href="https://linkedin.com/in/sanjay-a-7390a6257" target="_blank">linkedin.com/in</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
     <script>
-        window.embeddedChatbotConfig = {
-        chatbotId: "uwshftrcBHKsiAlpm6Sjd",
-        domain: "www.chatbase.co"
+        // Auto-typing effect
+        let typed = new Typed(".autotype", {
+            strings: ["Developer", "Designer", "Full Stack Engineer"],
+            typeSpeed: 50,
+            backSpeed: 50,
+            loop: true
+        });
+
+        // Smooth scrolling
+        function scrollToSection(sectionId) {
+            document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
+            document.querySelector('.nav-full').style.top = '-100%';
         }
-        </script>
-        <script
-        src="https://www.chatbase.co/embed.min.js"
-        chatbotId="uwshftrcBHKsiAlpm6Sjd"
-        domain="www.chatbase.co"
-        defer>
-        </script> -->
-        <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
-    <script>
-    // let typed = new Typed(".autotype", {
-    //         strings: ["developer","programmer", "designer","Entrepreneur"],
-    //         typeSpeed: 150,
-    //         backSpeed: 150,
-    //         loop: true,
-    //         showCursor: false,
-            
-    //     });
-    //     loader=document.getElementById("loader");
-    //     window.addEventListener("load",()=>{
-    //         setTimeout(()=>{
-    //             loader.style.display="none";
-    //              },4500)
-            
-    //     });
-           
-            
-            // document.querySelector(".greet").addEventListener("mousemove",(e)=>{
-            //     document.querySelector(".img").style.left = e.pageX + 'px';
-            //     document.querySelector(".img").style.top = e.pageY + 'px';
-            // });
-            // document.querySelector(".greet").addEventListener("mouseover",()=>{
-            //     document.querySelector(".img").style.display="block";
-            // });
-            // document.querySelector(".greet").addEventListener("mouseout",()=>{
-            //     document.querySelector(".img").style.display="none";
-            // });
-            document.querySelector(".menu").addEventListener("click",()=>{
-                let nav=document.querySelector(".nav-full");
-                let menu= document.querySelector(".menu");
-                let line= document.querySelectorAll(".line");
-                let line1= document.querySelector(".line1");
-                let logo= document.querySelector(".logo-img");
-                if(nav.style.top=="0%"){
-                    nav.style.top="-100%"
-                    
-                    menu.style.backgroundColor="black";
-                    line.forEach((l)=>(
-                        l.style.backgroundColor="white"))
-                    line1.style.backgroundColor="white";
-                    logo.style.backgroundColor="transparent"
-                    
-                 }else{
-                nav.style.top="0%";
-                line.forEach((l)=>(
-                    l.style.backgroundColor="black"))
-                line1.style.backgroundColor="black";
-                menu.style.backgroundColor="white";
-                    logo.style.backgroundColor="white"
-                 }
-      })
 
+        // Menu toggle
+        document.querySelector(".menu").addEventListener("click", () => {
+            let nav = document.querySelector(".nav-full");
+            let menu = document.querySelector(".menu");
+            let line = document.querySelectorAll(".line");
+            let line1 = document.querySelector(".line1");
+            let logo = document.querySelector(".logo-img");
+            
+            if(nav.style.top == "0%") {
+                nav.style.top = "-100%";
+                menu.style.backgroundColor = "black";
+                line.forEach(l => l.style.backgroundColor = "white");
+                line1.style.backgroundColor = "white";
+                logo.style.backgroundColor = "transparent";
+            } else {
+                nav.style.top = "0%";
+                line.forEach(l => l.style.backgroundColor = "black");
+                line1.style.backgroundColor = "black";
+                menu.style.backgroundColor = "white";
+                logo.style.backgroundColor = "white";
+            }
+        });
+
+        // Initialize skill progress bars with animation
+        function initializeSkills() {
+            const progressBars = document.querySelectorAll('.progress-bar');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const progressBar = entry.target;
+                        const progress = progressBar.getAttribute('data-progress');
+                        const circle = progressBar.querySelector('.progress');
+                        const percentage = progressBar.querySelector('.percentage');
+                        const radius = circle.r.baseVal.value;
+                        const circumference = 2 * Math.PI * radius;
+                        const offset = circumference - (progress / 100) * circumference;
+                        
+                        // Set the progress offset as a CSS variable
+                        circle.style.setProperty('--progress-offset', offset);
+                        
+                        // Add animation classes
+                        progressBar.classList.add('animate');
+                        percentage.classList.add('animate');
+                        
+                        // Animate the number
+                        animateNumber(percentage, progress);
+                        
+                        // Remove observer once animation is triggered
+                        observer.unobserve(progressBar);
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            progressBars.forEach(bar => observer.observe(bar));
+        }
+
+        // Animate number counting
+        function animateNumber(element, target) {
+            let current = 0;
+            const duration = 1500; // 1.5 seconds
+            const step = 16; // Update every 16ms (approximately 60fps)
+            const steps = duration / step;
+            const increment = target / steps;
+            
+            const counter = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    current = target;
+                    clearInterval(counter);
+                }
+                element.textContent = Math.round(current) + '%';
+            }, step);
+        }
+
+        // Initialize when DOM is loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            initializeSkills();
+        });
     </script>
 </body>
 </html>
