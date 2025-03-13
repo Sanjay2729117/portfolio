@@ -1,0 +1,535 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+ 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Pacifico", cursive;
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(90deg, #FF9A3A, #F04770);
+    ;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+
+    background: #555;
+}
+
+html,
+body {
+    cursor: url('./assets/Left\ Top.png'), auto;
+
+    background: rgb(255, 255, 255);
+
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    width: 95%;
+    height: 90px;
+    margin-left: 2.5%;
+    margin-top: 1%;
+    animation: menu 5s 0s infinite;
+    position: sticky;
+    z-index: 50;
+    top: 2%;
+}
+
+.logo-img {
+    display: inline-block;
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    transition: all 0.5s 0s ease-in-out;
+}
+
+/* section {
+    background-color: black;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: top 1s cubic-bezier(0.445, 0.05, 0.55, 0.95) 4s;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 40;
+} */
+.nav-items{
+color: white;
+font-size: xx-large;
+padding: 1%;
+transition: all 0.5s 0s ease-in-out;
+}
+@media screen and (max-width: 640px) {
+    .nav-items{
+        padding: 2%;
+        font-size:x-large;
+        } 
+}
+.drag{
+-webkit-user-drag: none;
+}
+.about{
+font-size:xx-large;
+}
+.nav-full {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+    background-color: #000;
+    z-index: 30;
+    top: -100%;
+    transition: all 0.5s 0s ease-in-out;
+}
+
+.menu {
+    height: 50px;
+    width: 50px;
+    background-color: #000000;
+    position: fixed;
+    right: 2%;
+    top: 2%;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    z-index: 60;
+    align-items: center;
+    animation: menu 5s 0s infinite;
+    transition: all 0.5s 0s ease-in-out;
+
+}
+
+@keyframes menu {
+    from {
+        -webkit-transform: rotate(0deg) translate3d(3px, 0, 0) rotate(0deg);
+    }
+
+    to {
+        -webkit-transform: rotate(360deg) translate3d(3px, 0, 0) rotate(-360deg);
+    }
+}
+
+.line {
+    width: 50%;
+    margin-top: 15%;
+    height: 1px;
+    border-radius: 10px;
+    background-color: #ffffff;
+    transition: all 0.5s 0s ease-in-out;
+}
+
+.line1 {
+    margin-top: 30%;
+    width: 50%;
+    border-radius: 10px;
+    height: 1px;
+    background-color: #ffffff;
+    transition: all 0.5s 0s ease-in-out;
+}
+
+
+
+#home {
+    height: 80vh;
+    width: 100%;
+
+
+}
+
+.bg-doodle {
+    position: absolute;
+    opacity: 0.1;
+    width: 350px;
+    rotate: 30deg;
+    top: -60px;
+    z-index:0;
+    overflow: hidden;
+
+}
+
+.bg-doodle-2 {
+    position: absolute;
+    opacity: 0.1;
+    width: 350px;
+    rotate: -30deg;
+    bottom: -100px;
+    right: -1500px;
+    z-index:0;
+    overflow: hidden;
+
+
+}
+
+.bg-doodle-3 {
+    position: absolute;
+    opacity: 0.1;
+    width: 350px;
+    rotate: 30deg;
+    bottom: 20px;
+    right: -1500px;
+    bottom: -500px;
+    z-index:0;
+    overflow: hidden;
+
+}
+
+.bg-doodle-7 {
+    position: absolute;
+    opacity: 0.1;
+    width: 350px;
+    rotate: -30deg;
+    bottom: 20px;
+    right: -700px;
+    bottom: -100px;
+    z-index:0;
+    overflow: hidden;
+
+}
+
+.bg-doodle-4 {
+    position: absolute;
+    opacity: 0.1;
+    width: 250px;
+    rotate: 60deg;
+    bottom: 20px;
+    left: 10px;
+    bottom: -500px;
+    z-index:0;
+    overflow: hidden;
+
+}
+
+.bg-doodle-5 {
+    position: absolute;
+    opacity: 0.1;
+    width: 250px;
+    rotate: 60deg;
+    bottom: 20px;
+    left: 400px;
+    bottom: -500px;
+    z-index:0;
+    overflow: hidden;
+
+}
+
+.bg-doodle-6 {
+    position: absolute;
+    opacity: 0.1;
+    width: 250px;
+    rotate: 60deg;
+    bottom: 20px;
+    top: -100px;
+    left: 800px;
+    z-index:0;
+
+    overflow: hidden;
+}
+
+.doodle {
+    position: fixed;
+    z-index: 0;
+    width: 100%;
+}
+
+.home-flex {
+    display: flex;
+    padding-top: 70px;
+    align-items: center;
+    flex-direction: column;
+    z-index: 10;
+}
+
+p {
+    font-size: 0.9rem;
+    font-style: normal;
+    text-align: center;
+    width: 750px;
+    padding-bottom: 20px;
+    color: rgb(179, 179, 179);
+    z-index: 10;
+}
+
+.cta {
+    background: linear-gradient(90deg, #FF9A3A, #F04770);
+    /* Gradient from Orange to Pink */
+    color: #FFFFFF;
+    /* White text */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 40px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 150px;
+    transition: background 0.3s, transform 0.3s;
+    text-align: center;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    z-index: 10;
+}
+
+.normal-button {
+    background-color: transparent;
+    color: #000;
+    padding: 10px 25px;
+    border: 1px solid black;
+    border-radius: 40px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 150px;
+    transition: background 0.3s, transform 0.3s;
+    text-align: center;
+    z-index: 10;
+}
+
+.buttons {
+    display: flex;
+    gap: 20px;
+}
+
+.greeting {
+    font-family: "Pacifico", cursive;
+    font-size: 5rem;
+    font-weight: 400;
+    font-style: normal;
+    text-align: center;
+    background: linear-gradient(90deg, #FF9A3A, #F04770, #8149C1, #4D4DB7, #24216B);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+    z-index: 10;
+}
+@media screen and (max-width: 640px) {
+.greeting{
+    font-size: 2rem;
+}
+p{
+    width: 80%;
+    font-size: 0.5rem;
+}
+.buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+}
+.align {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    margin-bottom: 10px;
+    gap: 5px;
+    background: transparent;
+}
+
+.replyalign {
+    justify-content: flex-end;
+}
+
+.align img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: transparent;
+}
+
+.intro {
+    width: 90%;
+    height: 100%;
+    margin-left: 5%;
+    padding: 2%;
+    background-color: transparent;
+    border-radius: 20px;
+    margin-bottom: 10px;
+    animation: in 5s linear;
+    animation-timeline: view();
+    animation-range: entry 0% cover 30%;
+}
+.projects{
+    width: 90vw;
+    margin-left: 5%;
+    height: 100%;
+    padding: 2%;
+    animation: in 5s linear;
+    animation-timeline: view();
+    animation-range: entry 0% cover 30%;
+}
+.notes-img{
+    width: 80%;
+    height: 40%;
+    margin-top: 4%;
+    margin-bottom: 3%;
+    border: 2px solid rgb(255, 255, 255);
+    transform: rotate(-3deg);
+    border-radius: 1px;
+}
+.notes{
+  display: grid;
+  grid-template-columns: auto auto auto;
+  width: 90%;
+  margin-left: 5%;
+}
+.sticky-container {
+    max-width: 270px;
+    position: relative;
+    animation: in 5s linear;
+    animation-timeline: view();
+    animation-range: entry 0% cover 20%;
+  }
+  
+  .sticky-outer {
+    display: flex;
+    padding-top: 92.5925926%;
+    position: relative;
+    width: 100%;
+  }
+  
+  .sticky {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+  
+  /* Shadow behind the sticky note */
+  .sticky:before {
+    box-shadow: -2px 2px 15px 0 rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.25);
+    content: '';
+    width: 90%;
+    left: 5px;
+    height: 83%;
+    position: absolute;
+    top: 30%;
+  }
+  
+  /* The sticky note itself */
+ .sticky-content {
+    background: linear-gradient(
+        180deg,
+        rgba(187, 235, 255, 1) 0%,
+        rgba(187, 235, 255, 1) 12%,
+        rgba(170, 220, 241, 1) 75%,
+        rgba(195, 229, 244, 1) 100%
+    ); /* Ensure there are no transparent values */
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    clip-path: url(#stickyClip);
+}
+.text{
+    text-align: center;
+    font-size: 2rem;   
+}
+  
+  /* Add responsiveness */
+  @media screen and (max-width: 640px) {
+    .sticky:before {
+      height: 79%;
+      width: 90%;
+    }
+    .sticky-content {
+      font-size: 1.25rem;
+    }
+    .notes{
+        display: grid;
+        grid-template-columns: auto;
+      }
+      .text{
+        font-size: 1.7rem;
+      }
+  }
+  
+  @media screen and (min-width: 768px) {
+    .sticky:before {
+      height: 75%;
+      width: 90%;
+    }
+    .sticky-content {
+      font-size: 1.5rem;
+    }
+  }
+  
+  @media screen and (min-width: 1024px) {
+    .sticky:before {
+      height: 73%;
+      width: 90%;
+    }
+    .sticky-content {
+      font-size: 1.875rem;
+    }
+  }
+  
+.msg {
+    width: max-content;
+    padding: 10px;
+    height: fit-content;
+    border-radius: 13px;
+    color: rgb(255, 255, 255);
+    background-color: #3797F0;
+    animation: in 5s linear;
+    animation-timeline: view();
+    animation-range: entry 0% cover 20%;
+    font-size: medium;
+    font-family: 'Roboto', sans-serif;
+}
+
+.reply {
+    font-size: medium;
+    width: max-content;
+    padding: 10px;
+    height: fit-content;
+    border-radius: 13px;
+    background-color: #EFEFEF;
+    color: #000000;
+    animation: in 5s linear;
+    animation-timeline: view();
+    animation-range: entry 0% cover 20%;
+    
+    font-family: 'Roboto', sans-serif;
+}
+
+@keyframes top {
+    0% {
+        top: 0px;
+    }
+
+    100% {
+        top: -10000px;
+    }
+}
+
+@keyframes in {
+    from {
+        opacity: 0;
+        scale: 0.5;
+    }
+
+    to {
+        opacity: 1;
+        scale: 1;
+    }
+}
