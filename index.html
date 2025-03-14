@@ -271,79 +271,47 @@
             loop: true
         });
 
-        // Smooth scrolling with offset
+        // Smooth scrolling
         function scrollToSection(sectionId) {
-            const section = document.getElementById(sectionId);
-            const navbar = document.querySelector('.navbar');
-            const offset = navbar.offsetHeight;
-            const elementPosition = section.getBoundingClientRect().top;
-            const offsetPosition = elementPosition + window.pageYOffset - offset;
-
-            window.scrollTo({
-                top: offsetPosition,
-                behavior: "smooth"
-            });
-            
-            // Close menu if open
-            const nav = document.querySelector('.nav-full');
-            const menu = document.querySelector('.menu');
-            if (nav.style.top === "0%") {
-                closeMenu();
-            }
+            document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
+            document.querySelector('.nav-full').style.top = '-100%';
         }
 
-        // Menu toggle with animations
-        function toggleMenu() {
-            const nav = document.querySelector('.nav-full');
-            const menu = document.querySelector('.menu');
-            const logo = document.querySelector('.logo-img');
+        // Menu toggle
+        document.querySelector(".menu").addEventListener("click", () => {
+            const nav = document.querySelector(".nav-full");
+            const menu = document.querySelector(".menu");
             
-            if (nav.style.top === "0%") {
-                closeMenu();
+            if (nav.classList.contains('active')) {
+                // Close menu
+                nav.classList.remove('active');
+                menu.classList.remove('active');
+                
+                // Reset nav items first
+                document.querySelectorAll('.nav-items').forEach(item => {
+                    item.classList.remove('active');
+                    item.style.transitionDelay = '0s';
+                });
+                
+                // Re-enable scrolling after animation
+                setTimeout(() => {
+                    document.body.style.overflow = '';
+                }, 400);
             } else {
-                openMenu();
-            }
-        }
-
-        function openMenu() {
-            const nav = document.querySelector('.nav-full');
-            const menu = document.querySelector('.menu');
-            const logo = document.querySelector('.logo-img');
-            
-            nav.style.top = "0%";
-            menu.classList.add('active');
-            menu.style.backgroundColor = "white";
-            document.querySelectorAll('.line, .line1').forEach(l => l.style.backgroundColor = "black");
-            logo.style.backgroundColor = "white";
-            
-            // Animate nav items
-            setTimeout(() => {
+                // Open menu
                 nav.classList.add('active');
-            }, 100);
-        }
-
-        function closeMenu() {
-            const nav = document.querySelector('.nav-full');
-            const menu = document.querySelector('.menu');
-            const logo = document.querySelector('.logo-img');
-            
-            nav.style.top = "-100%";
-            nav.classList.remove('active');
-            menu.classList.remove('active');
-            menu.style.backgroundColor = "black";
-            document.querySelectorAll('.line, .line1').forEach(l => l.style.backgroundColor = "white");
-            logo.style.backgroundColor = "transparent";
-        }
-
-        // Navbar scroll effect
-        function handleScroll() {
-            const navbar = document.querySelector('.navbar');
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
+                menu.classList.add('active');
+                document.body.style.overflow = 'hidden';
+                
+                // Animate nav items with delay
+                document.querySelectorAll('.nav-items').forEach((item, index) => {
+                    setTimeout(() => {
+                        item.style.transitionDelay = `${0.1 * (index + 1)}s`;
+                        item.classList.add('active');
+                    }, 300);
+                });
             }
-        }
+        });
 
         // Initialize skill progress bars with animation
         function initializeSkills() {
@@ -359,10 +327,17 @@
                         const circumference = 2 * Math.PI * radius;
                         const offset = circumference - (progress / 100) * circumference;
                         
+                        // Set the progress offset as a CSS variable
                         circle.style.setProperty('--progress-offset', offset);
+                        
+                        // Add animation classes
                         progressBar.classList.add('animate');
                         percentage.classList.add('animate');
+                        
+                        // Animate the number
                         animateNumber(percentage, progress);
+                        
+                        // Remove observer once animation is triggered
                         observer.unobserve(progressBar);
                     }
                 });
@@ -374,8 +349,8 @@
         // Animate number counting
         function animateNumber(element, target) {
             let current = 0;
-            const duration = 1500;
-            const step = 16;
+            const duration = 1500; // 1.5 seconds
+            const step = 16; // Update every 16ms (approximately 60fps)
             const steps = duration / step;
             const increment = target / steps;
             
@@ -389,12 +364,9 @@
             }, step);
         }
 
-        // Event Listeners
-        document.querySelector(".menu").addEventListener("click", toggleMenu);
-        window.addEventListener('scroll', handleScroll);
+        // Initialize when DOM is loaded
         document.addEventListener('DOMContentLoaded', () => {
             initializeSkills();
-            handleScroll(); // Check initial scroll position
         });
     </script>
 </body>
