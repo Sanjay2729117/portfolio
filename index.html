@@ -271,34 +271,79 @@
             loop: true
         });
 
-        // Smooth scrolling
+        // Smooth scrolling with offset
         function scrollToSection(sectionId) {
-            document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
-            document.querySelector('.nav-full').style.top = '-100%';
+            const section = document.getElementById(sectionId);
+            const navbar = document.querySelector('.navbar');
+            const offset = navbar.offsetHeight;
+            const elementPosition = section.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - offset;
+
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: "smooth"
+            });
+            
+            // Close menu if open
+            const nav = document.querySelector('.nav-full');
+            const menu = document.querySelector('.menu');
+            if (nav.style.top === "0%") {
+                closeMenu();
+            }
         }
 
-        // Menu toggle
-        document.querySelector(".menu").addEventListener("click", () => {
-            let nav = document.querySelector(".nav-full");
-            let menu = document.querySelector(".menu");
-            let line = document.querySelectorAll(".line");
-            let line1 = document.querySelector(".line1");
-            let logo = document.querySelector(".logo-img");
+        // Menu toggle with animations
+        function toggleMenu() {
+            const nav = document.querySelector('.nav-full');
+            const menu = document.querySelector('.menu');
+            const logo = document.querySelector('.logo-img');
             
-            if(nav.style.top == "0%") {
-                nav.style.top = "-100%";
-                menu.style.backgroundColor = "black";
-                line.forEach(l => l.style.backgroundColor = "white");
-                line1.style.backgroundColor = "white";
-                logo.style.backgroundColor = "transparent";
+            if (nav.style.top === "0%") {
+                closeMenu();
             } else {
-                nav.style.top = "0%";
-                line.forEach(l => l.style.backgroundColor = "black");
-                line1.style.backgroundColor = "black";
-                menu.style.backgroundColor = "white";
-                logo.style.backgroundColor = "white";
+                openMenu();
             }
-        });
+        }
+
+        function openMenu() {
+            const nav = document.querySelector('.nav-full');
+            const menu = document.querySelector('.menu');
+            const logo = document.querySelector('.logo-img');
+            
+            nav.style.top = "0%";
+            menu.classList.add('active');
+            menu.style.backgroundColor = "white";
+            document.querySelectorAll('.line, .line1').forEach(l => l.style.backgroundColor = "black");
+            logo.style.backgroundColor = "white";
+            
+            // Animate nav items
+            setTimeout(() => {
+                nav.classList.add('active');
+            }, 100);
+        }
+
+        function closeMenu() {
+            const nav = document.querySelector('.nav-full');
+            const menu = document.querySelector('.menu');
+            const logo = document.querySelector('.logo-img');
+            
+            nav.style.top = "-100%";
+            nav.classList.remove('active');
+            menu.classList.remove('active');
+            menu.style.backgroundColor = "black";
+            document.querySelectorAll('.line, .line1').forEach(l => l.style.backgroundColor = "white");
+            logo.style.backgroundColor = "transparent";
+        }
+
+        // Navbar scroll effect
+        function handleScroll() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        }
 
         // Initialize skill progress bars with animation
         function initializeSkills() {
@@ -314,17 +359,10 @@
                         const circumference = 2 * Math.PI * radius;
                         const offset = circumference - (progress / 100) * circumference;
                         
-                        // Set the progress offset as a CSS variable
                         circle.style.setProperty('--progress-offset', offset);
-                        
-                        // Add animation classes
                         progressBar.classList.add('animate');
                         percentage.classList.add('animate');
-                        
-                        // Animate the number
                         animateNumber(percentage, progress);
-                        
-                        // Remove observer once animation is triggered
                         observer.unobserve(progressBar);
                     }
                 });
@@ -336,8 +374,8 @@
         // Animate number counting
         function animateNumber(element, target) {
             let current = 0;
-            const duration = 1500; // 1.5 seconds
-            const step = 16; // Update every 16ms (approximately 60fps)
+            const duration = 1500;
+            const step = 16;
             const steps = duration / step;
             const increment = target / steps;
             
@@ -351,9 +389,12 @@
             }, step);
         }
 
-        // Initialize when DOM is loaded
+        // Event Listeners
+        document.querySelector(".menu").addEventListener("click", toggleMenu);
+        window.addEventListener('scroll', handleScroll);
         document.addEventListener('DOMContentLoaded', () => {
             initializeSkills();
+            handleScroll(); // Check initial scroll position
         });
     </script>
 </body>
